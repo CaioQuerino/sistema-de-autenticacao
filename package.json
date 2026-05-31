@@ -1,0 +1,23 @@
+{
+  "name": "sistema-de-autenticacao",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "repository": {
+    "url": "",
+    "type": "git"
+  },
+  "bugs": {
+    "url": ""
+  },
+  "scripts": {
+    "synapos:init": "synapos init"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "devDependencies": {
+    "synapos": "^3.5.0"
+  }
+}
