@@ -37,8 +37,8 @@ Habilita o agent a interagir diretamente com o GitHub sem sair do contexto de tr
 
 ### 2. Configurar variável de ambiente
 
-```
-GITHUB_PERSONAL_ACCESS_TOKEN=ghp_sua_chave_aqui
+```bash
+GITHUB_PERSONAL_ACCESS_TOKEN=TOKEN
 ```
 
 ### 3. Configurar MCP no IDE
@@ -51,7 +51,7 @@ GITHUB_PERSONAL_ACCESS_TOKEN=ghp_sua_chave_aqui
       "command": "npx",
       "args": ["-y", "@modelcontextprotocol/server-github"],
       "env": {
-        "GITHUB_PERSONAL_ACCESS_TOKEN": "${GITHUB_PERSONAL_ACCESS_TOKEN}"
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "\${GITHUB_PERSONAL_ACCESS_TOKEN}"
       }
     }
   }
@@ -66,7 +66,7 @@ GITHUB_PERSONAL_ACCESS_TOKEN=ghp_sua_chave_aqui
       "command": "npx",
       "args": ["-y", "@modelcontextprotocol/server-github"],
       "env": {
-        "GITHUB_PERSONAL_ACCESS_TOKEN": "ghp_sua_chave_aqui"
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "TOKEN"
       }
     }
   }
@@ -85,7 +85,7 @@ mcp_config:
   command: npx
   args: ["-y", "@modelcontextprotocol/server-github"]
   env:
-    GITHUB_PERSONAL_ACCESS_TOKEN: ${GITHUB_PERSONAL_ACCESS_TOKEN}
+    GITHUB_PERSONAL_ACCESS_TOKEN: TOKEN
 ```
 
 ---

@@ -4,9 +4,10 @@ import br.com.querino.autenticacao.dto.ProfileDTO;
 import br.com.querino.autenticacao.dto.UserRegisterDTO;
 import br.com.querino.autenticacao.enums.UserStatus;
 import br.com.querino.autenticacao.model.*;
-import br.com.querino.autenticacao.config.SecurityConfig;
+import br.com.querino.autenticacao.exception.BusinessException;
 import br.com.querino.autenticacao.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
+import br.com.querino.autenticacao.config.SecurityConfig;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -30,10 +31,10 @@ public class UserService {
 
     private void validateUniqueness(UserRegisterDTO dto) {
         if (userRepository.existsByEmail(dto.getEmail())) {
-            throw new RuntimeException("Email já cadastrado.");
+            throw new BusinessException("Email já cadastrado.");
         }
         if (userRepository.existsByUserName(dto.getUserName())) {
-            throw new RuntimeException("Nome de usuário já cadastrado.");
+            throw new BusinessException("Nome de usuário já cadastrado.");
         }
     }
 
@@ -54,7 +55,7 @@ public class UserService {
                 dto.getAvatarUrl(),
                 dto.getBio(),
                 true,
-                "0.0.0.0"
+                "0.0.0.0" // IP padrão, deve ser capturado no Controller
             );
             default -> new UserComum(
                 dto.getEmail(),
