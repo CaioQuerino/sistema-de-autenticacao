@@ -7,7 +7,7 @@ import br.com.querino.autenticacao.model.*;
 import br.com.querino.autenticacao.exception.BusinessException;
 import br.com.querino.autenticacao.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
-import br.com.querino.autenticacao.config.SecurityConfig;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -16,13 +16,13 @@ import org.springframework.transaction.annotation.Transactional;
 public class UserService {
 
     private final UserRepository userRepository;
-    private final SecurityConfig securityConfig;
+    private final PasswordEncoder passwordEncoder;
 
     @Transactional
     public ProfileDTO registerUser(UserRegisterDTO dto) {
         validateUniqueness(dto);
 
-        String encryptedPassword = securityConfig.passwordEncoder().encode(dto.getPassword());
+        String encryptedPassword = passwordEncoder.encode(dto.getPassword());
         User user = createUserInstance(dto, encryptedPassword);
 
         User savedUser = userRepository.save(user);

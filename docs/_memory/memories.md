@@ -8,12 +8,13 @@
 - **Herança JPA (JOINED):** Validamos que a estratégia `JOINED` é a mais adequada para o domínio Querino, permitindo que `Admin` e `UserGuest` tenham tabelas próprias mantendo o vínculo relacional com a tabela base `User`.
 - **Placeholder de Aplicação:** Resolvido erro de inicialização causado pela ausência da variável `SPRING_APPLICATION_NAME` no container.
 - **Placeholder de Aplicação:** Resolvido o erro de placeholder não resolvido para `SPRING_APPLICATION_NAME` garantindo que a variável de ambiente seja injetada via Docker Compose.
-- **Gestão de Projeto:** Repositório GitHub definido como `CaioQuerino/sistema-de-autenticacao`. Fluxo de autenticação decomposto em sub-tarefas vinculadas à Epic #1.
+- **Gestão de Projeto:** Repositório GitHub definido como `CaioQuerino/sistema-de-autenticacao`. Epic #1 refinada para incluir Critérios de Aceite (DoD) e Objetivos de Negócio.
 
 ### ⚖️ Decisões Registradas
 - **[DECISÃO CRÍTICA] Segurança de Credenciais:** Implementado `BCryptPasswordEncoder` (Spring Security) para hash de senhas no `UserService`. Nenhuma senha será armazenada em texto plano, respeitando a Regra de Ouro #1.
 - **[DECISÃO CRÍTICA] Docker Multi-stage:** Optamos por build multi-stage no `Dockerfile` para reduzir o tamanho da imagem final e isolar o ambiente de compilação (Maven) do ambiente de execução (JRE).
 - **[DECISÃO CRÍTICA] Unicidade de Identidade:** Validações de `email` e `userName` foram movidas para a camada de Service antes da criptografia para otimizar o fluxo de erro.
+- **[PADRÃO] Respostas REST:** Todas as respostas da API devem ser encapsuladas no objeto `ApiResponse<T>` para consistência de interface.
 
 ### 📈 Status das Tarefas
 - [x] Configuração Maven/Docker para JAR Executável.
@@ -22,7 +23,7 @@
 - [x] Implementação do `UserService` com Registro e Criptografia.
 - [x] Implementação do `UserController` e Endpoints REST. #2
 - [x] Handler Global de Exceções e Padronização de DTOs. #4
-- [ ] Configuração de Filtro JWT para Autenticação. #3
+- [x] Configuração de Filtro JWT para Autenticação. #3 (JwtService e Filtros implementados)
 
 ---
 *Registro gerado via protocolo synapos:memory*
