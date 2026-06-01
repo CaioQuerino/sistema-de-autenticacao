@@ -32,4 +32,4 @@ O projeto é um sistema de autenticação robusto utilizando Java, Spring Boot e
 - **Novos DTOs:** Implementados `ProfileDTO` e `ApiResponse` conforme requisitos do PRD.
 
 ---
-*Documento gerado para persistência de contexto pelo Gemini Code Assist.*
+*Registro gerado via protocolo synapos:memory*
