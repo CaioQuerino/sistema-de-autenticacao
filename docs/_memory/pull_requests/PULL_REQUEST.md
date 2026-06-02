@@ -1,45 +1,33 @@
-# PR: Finalização do Fluxo de Autenticação, Segurança e Documentações
+# PR: Refatoração e Unificação dos DTOs de Autenticação
 
 ## 📝 Descrição
-Este PR finaliza a base de segurança e gestão de usuários do projeto **Auth-Core**. Foram integrados os serviços de criptografia, autenticação stateless completa (Registro e Login) via JWT, resolução de pendências de infraestrutura e adição de documentação técnica e de negócios.
+Este PR padroniza os Data Transfer Objects (DTOs) utilizados no fluxo de autenticação. As classes `RequestLoginDTO` e `ResponseLoginDTO` foram removidas e substituídas pelas classes padrão `AuthenticationRequest` e `AuthenticationResponse`, respectivamente. O objetivo é eliminar redundâncias e aumentar a consistência do código.
 
 ## 🛠️ Alterações Realizadas
-- **Segurança & Login:** Implementação do endpoint de login, mapeamento correto do `UserDetails` para evitar erros de cast, e melhorias no tratamento de exceções (`GlobalExceptionHandler`) e robustez no `JwtAuthenticationFilter`.
-- **Registro:** Implementação do `UserController` e lógica de persistência para Admin, Comum e Guest utilizando estratégia `JOINED` (#2).
-- **Infraestrutura:** Correção do Healthcheck do MySQL no `docker-compose.yml`, evitando cenários de "Race Condition" na inicialização da API.
-- **Documentação:** Criação dos artefatos de documentação técnica (arquitetura e stack) e de negócios (fluxo de usuário e regras de auth) na pasta `docs/`.
+- **Refatoração:** Remoção das classes `RequestLoginDTO` e `ResponseLoginDTO`.
+- **Consistência:** Atualização do `AuthenticationController` para utilizar exclusivamente `AuthenticationRequest` e `AuthenticationResponse`.
+- **Documentação:** Atualização do plano de commits (`COMMIT_AUTH_PLAN.md`) para refletir a remoção dos DTOs obsoletos.
 
 ## 🎯 Vínculos
-- Finaliza a **Epic #1** (Fluxo Completo de Autenticação).
-- Closes #2, Closes #3, Closes #4.
+- Refatora a implementação relacionada à **Epic #1** (Fluxo Completo de Autenticação).
 
 ## 🧪 Como Testar
 1. Certifique-se de que o banco MySQL está rodando via `docker-compose up -d`.
-2. Realize um POST para `/api/users/register` com o seguinte JSON:
-   ```json
-   {
-     "email": "tester@querino.com",
-     "password": "strong_password",
-     "userName": "tester_dev",
-     "userRole": "USER"
-   }
-   ```
-3. Teste o endpoint de Login enviando um POST para `/api/auth/login`:
+2. Teste o endpoint de Login enviando um POST para `/api/auth/login` com o corpo no formato `AuthenticationRequest`:
    ```json
    {
      "email": "tester@querino.com",
      "password": "strong_password"
    }
    ```
-4. Verifique se a resposta retorna o **Token JWT** com sucesso.
-5. Tente acessar um endpoint inexistente ou protegido (sem enviar o token) para validar os retornos estruturados `403 Forbidden` ou `401 Unauthorized`.
+3. Verifique se a resposta retorna o **Token JWT** com sucesso, no formato `AuthenticationResponse`.
+4. Confirme que as classes `RequestLoginDTO.java` e `ResponseLoginDTO.java` foram removidas do projeto.
 
 ## ✅ Checklist de Qualidade
-- [x] Senhas nunca são armazenadas em texto plano.
-- [x] Não há vazamento de hashes de senha nos DTOs de saída.
-- [x] O código segue o padrão de injeção por construtor via Lombok.
-- [x] Problemas de referência circular na injeção de dependências foram resolvidos.
-- [x] As documentações de negócio e técnica foram atualizadas para o time.
+- [x] O código compila e os testes de login (manuais ou automatizados) continuam passando.
+- [x] As classes DTO redundantes foram completamente removidas.
+- [x] O `AuthenticationController` está alinhado com os DTOs padronizados.
+- [x] O plano de commits foi atualizado para refletir a refatoração.
 
 ---
 *Gerado automaticamente para o repositório CaioQuerino/sistema-de-autenticacao.*
