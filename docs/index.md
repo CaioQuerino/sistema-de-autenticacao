@@ -5,12 +5,16 @@ Bem-vindo ao centro de conhecimento do **Auth-Core**, um ecossistema de autentic
 ## 🗺️ Mapa de Navegação
 
 ### 1. Visão de Produto e Negócio
-*   **[Documento de Requisitos (PRD)](PRD.md)**: Definição de escopo, requisitos funcionais (RF), não funcionais (RNF) e critérios de aceite.
+*   **[Documento de Requisitos (PRD)](pre-prd.md)**: Definição de escopo, requisitos funcionais (RF), não funcionais (RNF) e critérios de aceite.
+*   **[Fluxo de Usuários](.squads/sessions/{feature-slug}/user-flow.md)**: Regras de negócio, perfis de usuários e jornadas de Registro, Login e Autorização.
 
 ### 2. Arquitetura e Decisões Técnicas
-*   **Memória do Projeto (Memories)**: Registro de decisões arquiteturais, bugs corrigidos e o mapeamento da estratégia de herança JPA `JOINED`.
+*   **Arquitetura do Sistema**: Detalhamento da arquitetura em camadas e segurança Stateless (JWT).
+*   **Stack Tecnológica**: Ferramentas, frameworks, banco de dados e bibliotecas utilizadas.
+*   **Memória do Projeto (Memories)**: Registro de decisões arquiteturais, rastreamento de bugs corrigidos e histórico de desenvolvimento.
 
-### 3. Operação e Infraestrutura
+### 3. Operação, Infraestrutura e CI/CD
+*   **Guia de CI/CD (GitHub Actions)**: Explicação do fluxo de Integração Contínua e automação de testes.
 *   **Configuração Docker**: Detalhes do ambiente de containers (App + MySQL 8.0).
 *   **Orquestração Synapos**: Protocolos de automação e comandos `synapos:*`.
 
@@ -40,5 +44,5 @@ docker-compose up -d
 - **Synapos Codex:** Orquestração de tarefas de engenharia via IA.
 
 ---
-*Última atualização: 2024-05-29*
+*Última atualização: Atualizado com fluxos de Autenticação JWT, CI/CD e Arquitetura.*
 *Protocolo: Synapos:Complete*

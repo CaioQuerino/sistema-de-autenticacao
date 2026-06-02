@@ -236,7 +236,7 @@ git add /src/main/java/br/com/querino/autenticacao/dto/RequestLoginDTO.java /src
 git commit -m `feat: remove classes RequestLoginDTO e ResponseLoginDTO e substitui por AuthenticationRequest e AuthenticationResponse"
 ```
 
-### 23.
+### 23. Atualização do Plano de Commits para Refatoração de DTOs de Login
 **Mensagem:** `docs: atualiza plano de commits para refatoração de DTOs de login`
 **Arquivos**
 - `docs/_memory/commits/COMMIT_AUTH_PLAN.md`
@@ -245,3 +245,16 @@ git commit -m `feat: remove classes RequestLoginDTO e ResponseLoginDTO e substit
 git add docs/_memory/commits/COMMIT_AUTH_PLAN.md
 git commit -m "docs: atualiza plano de commits para refatoração de DTOs de login"
 ```
+
+### 24. Atualização da Documentação de CI/CD
+**Mensagem:** `docs: atualiza documentação de CI/CD para refletir as mudanças na implementação de autenticação`
+**Arquivos**
+- `docs/ci-cd-explanation.md`
+- `docs/_memory/commits/COMMIT_AUTH_PLAN.md`
+- `docs/index.md`
+**Execução:**
+```bash
+git add docs/ci-cd-explanation.md docs/_memory/commits/COMMIT_AUTH_PLAN.md docs/index.md
+git commit -m "docs: atualiza documentação de CI/CD para refletir as mudanças na implementação de autenticação"
+```
+
