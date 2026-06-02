@@ -174,3 +174,53 @@ git add START_PROJECT.BAT
 git commit -m "fix: aprimora script de inicialização do projeto para melhor gerenciamento de containers"
 ```
 
+### 17. Documentação de Memória: Atualização com Aprendizados Recentes
+**Mensagem:** `docs: atualiza documentação de memória com aprendizados recentes sobre autenticação e autorização`
+**Arquivos:**
+- `docs/.squads/sessions/{feature-slug}/memories.md`
+**Execução:**
+```bash
+git add docs/.squads/sessions/{feature-slug}/memories.md
+git commit -m "docs: atualiza documentação de memória com aprendizados recentes sobre autenticação e autorização"
+```
+
+### 18. Documentação de Negócios: Fluxo de Usuários
+**Mensagem:** `docs: documenta fluxo de usuários para autenticação e autorização`
+**Arquivos:**
+- `docs/.squads/sessions/{feature-slug}/user-flow.md
+**Execução:**
+```bash
+git add docs/.squads/sessions/{feature-slug}/user-flow.md
+git commit -m "docs: documenta fluxo de usuários para autenticação e autorização"
+```
+
+### 19. Documentação de Arquitetura e Stack Tecnológica
+**Mensagem:** `docs: documenta arquitetura do sistema e stack tecnológica para autenticação`
+**Arquivos:**
+- `docs/.squads/sessions/{feature-slug}/architecture.md`
+- `docs/.squads/sessions/{feature-slug}/tech-stack.md`
+**Execução:**
+```bash
+git add docs/.squads/sessions/{feature-slug}/architecture.md docs/.squads/sessions/{feature-slug}/tech-stack.md
+git commit -m "docs: documenta arquitetura do sistema e stack tecnológica para autenticação"
+```
+
+### 20. Documentação de Memória: Aprendizados e Decisões Recentes
+**Mensagem:** `docs: atualiza documentação de memória com aprendizados e decisões recentes sobre autenticação e autorização`
+**Arquivos:**
+- `docs/_memories.md`
+**Execução:**
+```bash
+git add docs/_memories.md
+git commit -m "docs: atualiza documentação de memória com aprendizados e decisões recentes sobre autenticação e autorização"
+```
+
+### 21. Documentação de Memória: Plano de Commits para Autenticação
+**Mensagem:** `docs: adiciona plano de commits detalhado para implementação de autenticação e autorização`
+**Arquivos:**
+- `docs/_memory/commits/COMMIT_AUTH_PLAN.md`
+**Execução:**
+```bash
+git add docs/_memory/commits/COMMIT_AUTH_PLAN.md
+git commit -m "docs: adiciona plano de commits detalhado para implementação de autenticação e autorização"
+```
