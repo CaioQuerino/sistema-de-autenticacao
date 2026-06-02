@@ -224,3 +224,24 @@ git commit -m "docs: atualiza documentação de memória com aprendizados e deci
 git add docs/_memory/commits/COMMIT_AUTH_PLAN.md
 git commit -m "docs: adiciona plano de commits detalhado para implementação de autenticação e autorização"
 ```
+
+### 22. Refatoração de DTOs de Login para Autenticação
+**Mensagem:** `feat: remove classes RequestLoginDTO e ResponseLoginDTO e substitui por AuthenticationRequest e AuthenticationResponse`
+**Arquivos:**
+- `/src/main/java/br/com/querino/autenticacao/dto/RequestLoginDTO.java`
+- `/src/main/java/br/com/querino/autenticacao/dto/ResponseLoginDTO.java`
+**Execução:**
+```bash
+git add /src/main/java/br/com/querino/autenticacao/dto/RequestLoginDTO.java /src/main/java/br/com/querino/autenticacao/dto/ResponseLoginDTO.java
+git commit -m `feat: remove classes RequestLoginDTO e ResponseLoginDTO e substitui por AuthenticationRequest e AuthenticationResponse"
+```
+
+### 23.
+**Mensagem:** `docs: atualiza plano de commits para refatoração de DTOs de login`
+**Arquivos**
+- `docs/_memory/commits/COMMIT_AUTH_PLAN.md`
+**Execução:**
+```bash
+git add docs/_memory/commits/COMMIT_AUTH_PLAN.md
+git commit -m "docs: atualiza plano de commits para refatoração de DTOs de login"
+```
