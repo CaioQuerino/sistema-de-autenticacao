@@ -33,7 +33,7 @@ public class AuthenticationService {
                 .profile(ProfileDTO.builder()
                         .id(user.getId())
                         .email(user.getEmail())
-                        .userName(user.getUserName())
+                        .userName(user.getUsername())
                         .userRole(user.getUserRole())
                         .build())
                 .build();
