@@ -25,5 +25,20 @@
 - [x] Handler Global de Exceções e Padronização de DTOs. #4
 - [x] Configuração de Filtro JWT para Autenticação. #3 (JwtService e Filtros implementados)
 
+## [Atual] Conclusão do Épico #1 e Nova Base Documental
+
+### 🛠️ Aprendizados Principais
+- **Documentação Estratégica:** A separação clara entre a visão de negócios (`user-flow.md`), arquitetura (`architecture.md`) e DevOps (`ci-cd-explanation.md`) demonstrou ser fundamental para a clareza do projeto e compatibilidade com o Synapos Framework.
+- **Refatoração Semântica:** A substituição de `RequestLoginDTO`/`ResponseLoginDTO` por `AuthenticationRequest`/`AuthenticationResponse` aumentou a consistência do código de autenticação.
+
+### ⚖️ Decisões Registradas
+- **[DECISÃO CRÍTICA] Estrutura de Memórias por Épico:** Adotada a segregação de memórias (`memories.md`) por épico/feature (ex: `docs/_memory/epics/profile/memories.md`) para otimizar o uso de tokens e manter o foco contextual das inteligências artificiais.
+- **[DECISÃO] Transição de Épicos:** O fluxo principal de autenticação foi validado. O **Epic #2 (Gestão de Perfil)** foi oficialmente aberto para consumir o JWT e entregar valor ao usuário final.
+
+### 📈 Status das Tarefas
+- [x] Geração das documentações de Negócio (User Flow) e Técnicas (Arquitetura, Stack).
+- [x] Criação do guia de CI/CD (GitHub Actions) com build Maven/Java 17.
+- [x] Planejamento da Epic de Gestão de Perfil (Issue #10: `GET /api/users/me`).
+
 ---
 *Registro gerado via protocolo synapos:memory*
