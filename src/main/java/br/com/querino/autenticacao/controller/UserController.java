@@ -20,4 +20,10 @@ public class UserController {
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(ApiResponse.success(profile, "Usuário registrado com sucesso!"));
     }
+
+    @GetMapping("/me")
+    public ResponseEntity<ApiResponse<ProfileDTO>> getCurrentUserProfile() {
+        ProfileDTO profile = userService.getAuthenticatedUserProfile();
+        return ResponseEntity.ok(ApiResponse.success(profile, "Perfil recuperado com sucesso."));
+    }
 }
