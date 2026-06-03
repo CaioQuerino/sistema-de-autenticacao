@@ -7,6 +7,7 @@ import br.com.querino.autenticacao.model.*;
 import br.com.querino.autenticacao.exception.BusinessException;
 import br.com.querino.autenticacao.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -27,6 +28,17 @@ public class UserService {
 
         User savedUser = userRepository.save(user);
         return convertToProfileDTO(savedUser);
+    }
+
+    public ProfileDTO getAuthenticatedUserProfile() {
+        String email = SecurityContextHolder
+            .getContext()
+            .getAuthentication()
+            .getName();
+            
+        User user = userRepository.findByEmail(email)
+                .orElseThrow(() -> new BusinessException("Usuário autenticado não encontrado na base de dados."));
+        return convertToProfileDTO(user);
     }
 
     private void validateUniqueness(UserRegisterDTO dto) {
@@ -73,7 +85,7 @@ public class UserService {
         return ProfileDTO.builder()
                 .id(user.getId())
                 .email(user.getEmail())
-                .userName(user.getUserName())
+                .userName(user.getUsername())
                 .userRole(user.getUserRole())
                 .build();
     }
