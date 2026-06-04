@@ -2,6 +2,7 @@ package br.com.querino.autenticacao.service;
 
 import br.com.querino.autenticacao.dto.ProfileDTO;
 import br.com.querino.autenticacao.dto.ProfileUpdateDTO;
+import br.com.querino.autenticacao.dto.UpdatePasswordDTO;
 import br.com.querino.autenticacao.dto.UserRegisterDTO;
 import br.com.querino.autenticacao.enums.UserStatus;
 import br.com.querino.autenticacao.model.*;
@@ -59,6 +60,20 @@ public class UserService {
         if (dto.getBio() != null) user.setBio(dto.getBio());
 
         return convertToProfileDTO(userRepository.save(user));
+    }
+
+    @Transactional
+    public void changePassword(UpdatePasswordDTO dto) {
+        String email = SecurityContextHolder.getContext().getAuthentication().getName();
+        User user = userRepository.findByEmail(email)
+                .orElseThrow(() -> new BusinessException("Usuário não encontrado."));
+
+        if (!passwordEncoder.matches(dto.getOldPassword(), user.getPassword())) {
+            throw new BusinessException("A senha atual está incorreta.");
+        }
+
+        user.setPassword(passwordEncoder.encode(dto.getNewPassword()));
+        userRepository.save(user);
     }
 
     private void validateUniqueness(UserRegisterDTO dto) {

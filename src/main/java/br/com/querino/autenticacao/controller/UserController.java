@@ -32,4 +32,10 @@ public class UserController {
         ProfileDTO profile = userService.updateAuthenticatedUserProfile(dto);
         return ResponseEntity.ok(ApiResponse.success(profile, "Perfil atualizado com sucesso!"));
     }
+
+    @PutMapping("/me/password")
+    public ResponseEntity<ApiResponse<Void>> changePassword(@Valid @RequestBody UpdatePasswordDTO dto) {
+        userService.changePassword(dto);
+        return ResponseEntity.ok(ApiResponse.success(null, "Senha alterada com sucesso!"));
+    }
 }
