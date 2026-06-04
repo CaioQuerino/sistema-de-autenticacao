@@ -14,15 +14,15 @@ Esta Epic centraliza o desenvolvimento do módulo de gestão de perfis do projet
 
 ## 🔗 Tarefas Vinculadas (Child Issues)
 - [x] **Issue 1** - Implementação da Consulta de Perfil Logado (`GET /api/users/me`).
-- [ ] **Issue 2** - Implementação da Atualização de Dados Cadastrais (`PUT /api/users/me`).
-- [ ] **Issue 3** - Implementação da Alteração de Senha Segura (`PUT /api/users/me/password`).
+- [x] **Issue 2** - Implementação da Atualização de Dados Cadastrais (`PUT /api/users/me`).
+- [x] **Issue 3** - Implementação da Alteração de Senha Segura (`PUT /api/users/me/password`).
 
 ## 🚀 Critérios de Aceite
-- [ ] Nenhuma das rotas deste Épico deve receber o parâmetro `{id}` via Path Variable. A identidade é 100% abstraída do JWT.
-- [ ] Requisições não autenticadas ou com JWT expirado devem retornar `401 Unauthorized`.
-- [ ] O endpoint de atualização não permite modificação de e-mail ou `ROLE`.
-- [ ] A troca de senha valida corretamente a senha antiga com o hash atual antes de salvar a nova.
-- [ ] O sucesso nas operações retorna dados atualizados usando a padronização `ApiResponse<T>`.
+- [x] Nenhuma das rotas deste Épico deve receber o parâmetro `{id}` via Path Variable. A identidade é 100% abstraída do JWT.
+- [x] Requisições não autenticadas ou com JWT expirado devem retornar `401 Unauthorized`.
+- [x] O endpoint de atualização não permite modificação de e-mail ou `ROLE`.
+- [x] A troca de senha valida corretamente a senha antiga com o hash atual antes de salvar a nova.
+- [x] O sucesso nas operações retorna dados atualizados usando a padronização `ApiResponse<T>`.
 
 ---
 *Documento gerado para rastreabilidade do Auth-Core via Gemini Code Assist.*

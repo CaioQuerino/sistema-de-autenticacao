@@ -46,6 +46,26 @@ Siga esta ordem para garantir que cada commit seja atômico e funcional.
 - `docs/_memory/epics/profile/issue#12.md`
 - `docs/_memory/epics/profile/issue#13.md`
 
+### 8. Atualização de Perfil (Issue #12)
+**Mensagem:** `feat(profile): adicionar endpoint para atualização do perfil do usuário autenticado`
+**Arquivos:**
+- `src/main/java/br/com/querino/autenticacao/controller/UserController.java`
+- `src/main/java/br/com/querino/autenticacao/service/UserService.java`
+- `src/main/java/br/com/querino/autenticacao/dto/ProfileDTO.java`
+
+### 9. Correção de Erro de Token JWT
+**Mensagem:** `fix(auth): substituir print de erro por comentário para falha silenciosa no processamento de token JWT`
+**Arquivos:**
+- `src/main/java/br/com/querino/autenticacao/config/JwtAuthenticationFilter.java`
+
+### 10. Atualização do Plano de Commits
+**Mensagem:** `feat(profile): atualizar plano de commits e corrigir descrição da atualização de dados cadastrais`
+**Arquivos:**
+- `docs/_memory/commits/COMMIT_PROFILE_PLAN.md`
+- `docs/_memory/epics/profile/issue#13.md`
+- `docs/_memory/memories.md`
+- `docs/_memory/pull_requests/pull_request_template.md`
+
 ---
 
 ## Comandos para Execução Rápida:
