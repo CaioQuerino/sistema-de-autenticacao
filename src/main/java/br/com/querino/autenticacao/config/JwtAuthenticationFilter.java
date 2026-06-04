@@ -52,7 +52,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                 }
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            // Erros de processamento de token resultam em falha silenciosa para o SecurityConfig tratar
         }
         filterChain.doFilter(request, response);
     }
