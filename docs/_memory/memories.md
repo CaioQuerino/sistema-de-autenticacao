@@ -40,11 +40,12 @@
 - [x] Criação do guia de CI/CD (GitHub Actions) com build Maven/Java 17.
 - [x] Planejamento da Epic de Gestão de Perfil (Issue #10: `GET /api/users/me`).
 
-## [2026-06-03] Conclusão da Epic #2: Gestão de Perfil
+## [CONCLUÍDO] Epic #2: Gestão de Perfil
 
 ### ⚖️ Decisões Registradas
 - **[SEGURANÇA] UserDetails Integration:** A entidade `User` passou a implementar `UserDetails` explicitamente, vinculando o `email` ao `getUsername()`. Isso estabilizou a validação de tokens JWT.
 - **[SEGURANÇA] ID Abstraction:** Confirmada a diretriz de não utilizar IDs em rotas de recursos próprios (`/me`), prevenindo vulnerabilidades de Broken Object Level Authorization (BOLA).
+- **[UX/API] White-listing DTO:** O uso de `ProfileUpdateDTO` garante que apenas campos não sensíveis sejam alterados, ignorando silenciosamente tentativas de modificar `email` ou `roles`.
 
 ### 📈 Status das Tarefas
 - [x] Implementação de Consulta, Atualização e Troca de Senha.
