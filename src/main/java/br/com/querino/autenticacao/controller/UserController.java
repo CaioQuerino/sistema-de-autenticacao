@@ -26,4 +26,10 @@ public class UserController {
         ProfileDTO profile = userService.getAuthenticatedUserProfile();
         return ResponseEntity.ok(ApiResponse.success(profile, "Perfil recuperado com sucesso."));
     }
+
+    @PutMapping(value = "/me", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<ApiResponse<ProfileDTO>> updateProfile(@Valid @RequestBody ProfileUpdateDTO dto) {
+        ProfileDTO profile = userService.updateAuthenticatedUserProfile(dto);
+        return ResponseEntity.ok(ApiResponse.success(profile, "Perfil atualizado com sucesso!"));
+    }
 }

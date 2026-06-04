@@ -1,6 +1,7 @@
 package br.com.querino.autenticacao.service;
 
 import br.com.querino.autenticacao.dto.ProfileDTO;
+import br.com.querino.autenticacao.dto.ProfileUpdateDTO;
 import br.com.querino.autenticacao.dto.UserRegisterDTO;
 import br.com.querino.autenticacao.enums.UserStatus;
 import br.com.querino.autenticacao.model.*;
@@ -39,6 +40,25 @@ public class UserService {
         User user = userRepository.findByEmail(email)
                 .orElseThrow(() -> new BusinessException("Usuário autenticado não encontrado na base de dados."));
         return convertToProfileDTO(user);
+    }
+
+    @Transactional
+    public ProfileDTO updateAuthenticatedUserProfile(ProfileUpdateDTO dto) {
+        String email = SecurityContextHolder.getContext().getAuthentication().getName();
+        User user = userRepository.findByEmail(email)
+                .orElseThrow(() -> new BusinessException("Usuário não encontrado."));
+
+        if (dto.getUserName() != null && !dto.getUserName().equals(user.getUsername())) {
+            if (userRepository.existsByUserName(dto.getUserName())) {
+                throw new BusinessException("Nome de usuário já está em uso.");
+            }
+            user.setUserName(dto.getUserName());
+        }
+
+        if (dto.getAvatarUrl() != null) user.setAvatarUrl(dto.getAvatarUrl());
+        if (dto.getBio() != null) user.setBio(dto.getBio());
+
+        return convertToProfileDTO(userRepository.save(user));
     }
 
     private void validateUniqueness(UserRegisterDTO dto) {
