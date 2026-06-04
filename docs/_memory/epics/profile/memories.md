@@ -17,4 +17,7 @@ Identificado que a entidade `User` precisava implementar `UserDetails` explicita
 
 ## [backend · observabilidade]
 Adicionados handlers de `authenticationEntryPoint` e `accessDeniedHandler` no `SecurityConfig` para garantir que erros de autenticação retornem JSON padronizado em vez de corpo vazio.
+
+## [backend · segurança]
+[REGRAS DE OURO] A troca de senha (`changePassword`) implementa a validação obrigatória da credencial atual via `passwordEncoder.matches()` antes de permitir o re-hash da nova senha, prevenindo ataques de sequestro de sessão física.
 <!-- /RECENTES -->

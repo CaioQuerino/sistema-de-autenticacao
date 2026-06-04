@@ -23,12 +23,7 @@ Siga esta ordem para garantir que cada commit seja atômico e funcional.
 - `src/main/java/br/com/querino/autenticacao/config/SecurityConfig.java`
 - `src/main/java/br/com/querino/autenticacao/config/JwtAuthenticationFilter.java`
 
-### 5. Serviço de Autenticação
-**Mensagem:** `fix(service): corrigir mapeamento de userName para username no ProfileDTO`
-**Arquivos:**
-- `src/main/java/br/com/querino/autenticacao/service/AuthenticationService.java`
-
-### 6. Documentação e Rastreabilidade da Epic #1
+### 5. Documentação e Rastreabilidade da Epic #1
 **Mensagem:** `docs(auth): atualizar status da epic e memorias do modulo de autenticacao`
 **Arquivos:**
 - `docs/_memory/epics/EPIC_AUTH_FLOW.md`
@@ -36,7 +31,7 @@ Siga esta ordem para garantir que cada commit seja atômico e funcional.
 - `docs/_memory/epics/auth/issue#3.md`
 - `docs/_memory/epics/auth/issue#4.md`
 
-### 7. Documentação e Rastreabilidade da Epic #2
+### 6. Documentação e Rastreabilidade da Epic #2
 **Mensagem:** `docs(profile): atualizar status da epic e memorias do modulo de perfil`
 **Arquivos:**
 - `docs/_memory/epics/EPIC_PROFILE_MANAGEMENT.md`
@@ -46,19 +41,19 @@ Siga esta ordem para garantir que cada commit seja atômico e funcional.
 - `docs/_memory/epics/profile/issue#12.md`
 - `docs/_memory/epics/profile/issue#13.md`
 
-### 8. Atualização de Perfil (Issue #12)
+### 7. Atualização de Perfil (Issue #12)
 **Mensagem:** `feat(profile): adicionar endpoint para atualização do perfil do usuário autenticado`
 **Arquivos:**
 - `src/main/java/br/com/querino/autenticacao/controller/UserController.java`
 - `src/main/java/br/com/querino/autenticacao/service/UserService.java`
 - `src/main/java/br/com/querino/autenticacao/dto/ProfileDTO.java`
 
-### 9. Correção de Erro de Token JWT
+### 8. Correção de Erro de Token JWT
 **Mensagem:** `fix(auth): substituir print de erro por comentário para falha silenciosa no processamento de token JWT`
 **Arquivos:**
 - `src/main/java/br/com/querino/autenticacao/config/JwtAuthenticationFilter.java`
 
-### 10. Atualização do Plano de Commits
+### 9. Atualização do Plano de Commits
 **Mensagem:** `feat(profile): atualizar plano de commits e corrigir descrição da atualização de dados cadastrais`
 **Arquivos:**
 - `docs/_memory/commits/COMMIT_PROFILE_PLAN.md`
