@@ -20,4 +20,22 @@ public class UserController {
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(ApiResponse.success(profile, "Usuário registrado com sucesso!"));
     }
+
+    @GetMapping("/me")
+    public ResponseEntity<ApiResponse<ProfileDTO>> getCurrentUserProfile() {
+        ProfileDTO profile = userService.getAuthenticatedUserProfile();
+        return ResponseEntity.ok(ApiResponse.success(profile, "Perfil recuperado com sucesso."));
+    }
+
+    @PutMapping(value = "/me", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<ApiResponse<ProfileDTO>> updateProfile(@Valid @RequestBody ProfileUpdateDTO dto) {
+        ProfileDTO profile = userService.updateAuthenticatedUserProfile(dto);
+        return ResponseEntity.ok(ApiResponse.success(profile, "Perfil atualizado com sucesso!"));
+    }
+
+    @PutMapping("/me/password")
+    public ResponseEntity<ApiResponse<Void>> changePassword(@Valid @RequestBody UpdatePasswordDTO dto) {
+        userService.changePassword(dto);
+        return ResponseEntity.ok(ApiResponse.success(null, "Senha alterada com sucesso!"));
+    }
 }
